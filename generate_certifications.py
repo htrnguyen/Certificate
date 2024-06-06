@@ -39,8 +39,7 @@ try:
     df = pd.DataFrame(data)
     df.index += 1  # Đánh số thứ tự bắt đầu từ 1
 
-    # Sắp xếp dữ liệu theo cột "Date" giảm dần
-    df["Year"] = pd.to_datetime(df["Year"], format="%Y")
+    # Sắp xếp dữ liệu theo cột "Year" giảm dần (năm mới nhất trước)
     df = df.sort_values(by="Year", ascending=False)
 
     # Tạo cột chứa liên kết HTML
