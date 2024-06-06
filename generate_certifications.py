@@ -7,7 +7,12 @@ import json
 
 # Đọc thông tin đăng nhập từ secrets
 credentials_info = st.secrets["GOOGLE_APPLICATION_CREDENTIALS_JSON"]
-credentials_dict = json.loads(credentials_info)
+
+try:
+    credentials_dict = json.loads(credentials_info)
+except json.JSONDecodeError as e:
+    st.error(f"Error decoding JSON: {e}")
+    st.stop()
 
 # Thiết lập kết nối tới Google Sheets
 scope = ["https://spreadsheets.google.com/feeds", 'https://www.googleapis.com/auth/drive']
