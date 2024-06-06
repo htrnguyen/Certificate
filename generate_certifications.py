@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="My Certifications",
-    page_icon=":trophy:",  # Hoặc bạn có thể sử dụng đường dẫn tới favicon
+    page_icon="./favicon.ico",  # Hoặc bạn có thể sử dụng đường dẫn tới favicon
     layout="centered",  # 'wide' hoặc 'centered'
     initial_sidebar_state="auto",  # 'auto', 'expanded', 'collapsed'
 )
