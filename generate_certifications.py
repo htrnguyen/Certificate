@@ -1,4 +1,13 @@
 import streamlit as st
+
+st.set_page_config(
+    page_title="My Certifications",
+    page_icon=":trophy:",  # Hoặc bạn có thể sử dụng đường dẫn tới favicon
+    layout="centered",  # 'wide' hoặc 'centered'
+    initial_sidebar_state="auto",  # 'auto', 'expanded', 'collapsed'
+)
+
+# Rest of your Streamlit code
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
