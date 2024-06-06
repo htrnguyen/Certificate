@@ -39,8 +39,8 @@ try:
     df = pd.DataFrame(data)
     df.index += 1  # Đánh số thứ tự bắt đầu từ 1
 
-    # Sắp xếp dữ liệu theo cột "Year" giảm dần (năm mới nhất trước)
-    df = df.sort_values(by="Year", ascending=False)
+    # Sắp xếp dữ liệu theo thứ tự ngược lại của index
+    df = df.iloc[::-1]
 
     # Tạo cột chứa liên kết HTML
     df["Certificate Name"] = df.apply(
