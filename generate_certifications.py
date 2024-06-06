@@ -8,6 +8,7 @@ st.set_page_config(
 )
 
 import json
+
 import gspread
 import pandas as pd
 import streamlit.components.v1 as components
@@ -41,6 +42,10 @@ try:
 
     # Sắp xếp dữ liệu theo thứ tự ngược lại của index
     df = df.iloc[::-1]
+
+    # Reset index để số thứ tự luôn bắt đầu từ 1
+    df.reset_index(drop=True, inplace=True)
+    df.index += 1
 
     # Tạo cột chứa liên kết HTML
     df["Certificate Name"] = df.apply(
@@ -83,6 +88,8 @@ try:
     components.html(html_content, height=600)
 
 except gspread.SpreadsheetNotFound:
-    st.error("The specified Google Sheet was not found. Please check the name and try again.")
+    st.error(
+        "The specified Google Sheet was not found. Please check the name and try again."
+    )
 except Exception as e:
     st.error(f"An error occurred: {e}")
