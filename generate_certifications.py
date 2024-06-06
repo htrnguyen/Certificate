@@ -3,15 +3,10 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 import streamlit.components.v1 as components
-import os
 import json
 
-# Đọc thông tin đăng nhập từ biến môi trường
-credentials_info = os.getenv('GOOGLE_APPLICATION_CREDENTIALS_JSON')
-if credentials_info is None:
-    st.error("GOOGLE_APPLICATION_CREDENTIALS_JSON environment variable not set.")
-    st.stop()
-
+# Đọc thông tin đăng nhập từ secrets
+credentials_info = st.secrets["GOOGLE_APPLICATION_CREDENTIALS_JSON"]
 credentials_dict = json.loads(credentials_info)
 
 # Thiết lập kết nối tới Google Sheets
