@@ -8,7 +8,6 @@ st.set_page_config(
 )
 
 import json
-
 import gspread
 import pandas as pd
 import streamlit.components.v1 as components
@@ -84,8 +83,6 @@ try:
     components.html(html_content, height=600)
 
 except gspread.SpreadsheetNotFound:
-    st.error(
-        "The specified Google Sheet was not found. Please check the name and try again."
-    )
+    st.error("The specified Google Sheet was not found. Please check the name and try again.")
 except Exception as e:
     st.error(f"An error occurred: {e}")
