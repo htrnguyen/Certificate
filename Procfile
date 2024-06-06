@@ -1,0 +1,1 @@
+web: streamlit run generate_certifications.py
